@@ -1,9 +1,9 @@
-export default function Home() {
+export default function Products() {
   return (
     <main>
       <section>
         <div className="container">
-          <h1>Home</h1>
+          <h1>Products</h1>
         </div>
       </section>
     </main>

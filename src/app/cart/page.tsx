@@ -1,9 +1,9 @@
-export default function Home() {
+export default function Cart() {
   return (
     <main>
       <section>
         <div className="container">
-          <h1>Home</h1>
+          <h1>Cart</h1>
         </div>
       </section>
     </main>
