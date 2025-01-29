@@ -3,7 +3,7 @@ export default function Cart() {
     <main>
       <section>
         <div className="container">
-          <h1>Cart</h1>
+          <h1>Cart 1</h1>
         </div>
       </section>
     </main>
