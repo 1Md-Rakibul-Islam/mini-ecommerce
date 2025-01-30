@@ -18,7 +18,7 @@ const ProductCard = ({ product }: { product: TProduct }) => {
       </div>
       <div className="py-24p border-t border-shap pt-30p">
         <Link
-          href={product?.id?.toString()}
+          href={`/products/${product?.id?.toString()}`}
           className="heading-4 text-w-neutral-1 line-clamp-1 group-hover:text-secondary transition-1 mb-20p "
         >
           {product?.title}
@@ -35,15 +35,12 @@ const ProductCard = ({ product }: { product: TProduct }) => {
           </div>
         </div>
         <div className="flex-y justify-between 4xl:gap-6 gap-3">
-          <Link
-            href={product?.id?.toString()}
-            className="btn btn-md btn-neutral-3 group-hover:bg-primary group-hover:text-b-neutral-4 rounded-12"
-          >
+          <button className="btn btn-md btn-neutral-3 group-hover:bg-primary group-hover:text-b-neutral-4 rounded-12">
             <span className="flex-c icon-24">
               <IconShoppingCartPlus />
             </span>
             Add To Cart
-          </Link>
+          </button>
         </div>
       </div>
     </div>

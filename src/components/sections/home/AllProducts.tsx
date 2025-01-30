@@ -3,7 +3,6 @@ import { TProduct } from "@/types/product.interface";
 import { fetchProducts } from "@/utils/API";
 
 export default async function AllProducts() {
-  // Fetch data directly in the component
   const products: TProduct[] = await fetchProducts();
 
   if (!products || products.length === 0) {

@@ -1,3 +1,4 @@
+import { IconChevronsRight } from "@tabler/icons-react";
 import { StaticImageData } from "next/image";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
@@ -19,7 +20,9 @@ export type ItemsProps = {
 
 const Breadcrumb = ({ breadcrumb }: { breadcrumb: BreadcrumbType }) => {
   return (
-    <section className={twMerge("pt-30p", breadcrumb?.className)}>
+    <section
+      className={twMerge("pt-30p bg-b-neutral-2", breadcrumb?.className)}
+    >
       <div className="section-pt">
         <div className="relative  bg-cover bg-no-repeat rounded-24 overflow-hidden">
           <div className="container">
@@ -46,7 +49,7 @@ const Breadcrumb = ({ breadcrumb }: { breadcrumb: BreadcrumbType }) => {
                       {breadcrumb.navLinks &&
                         idx !== breadcrumb.navLinks?.length - 1 && (
                           <span className="breadcrumb-icon">
-                            <i className="ti ti-chevrons-right"></i>
+                            <IconChevronsRight />
                           </span>
                         )}
                     </li>

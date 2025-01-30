@@ -6,21 +6,10 @@ export const navMenu = [
         link: "/"
     },
     {
-        id: 2,
+        id: 3,
         name: "Products",
-        isSubMenu: true,
-        subMenu: [
-            {
-                id: 1.1,
-                name: "Product",
-                link: "products"
-            },
-            {
-                id: 1.2,
-                name: "Products",
-                link: "products/1"
-            },
-        ]
+        isSubMenu: false,
+        link: "products"
     },
     {
         id: 3,
