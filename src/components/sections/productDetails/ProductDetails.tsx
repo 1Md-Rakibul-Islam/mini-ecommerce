@@ -9,12 +9,12 @@ const ProductDetails = ({ product }: { product: TProduct }) => {
       <div className="container">
         <div className="grid grid-cols-12 gap-x-30p gap-y-10 mb-60p">
           <div className="xxl:col-span-6 xl:col-span-7 col-span-12 relative">
-            <div className="xl:sticky xl:top-30">
+            <div className="xl:sticky xl:top-30 bg-white">
               <Image
-                className="object-contain"
+                className="w-full h-[540px] object-contain object-center"
                 src={product?.image}
-                width={500}
-                height={500}
+                width={600}
+                height={540}
                 alt={product?.title}
               />
             </div>

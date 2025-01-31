@@ -23,7 +23,7 @@ const ScrollToTop = () => {
     <button
       className={`${
         scrolled ? "bottom-10" : "-bottom-40"
-      } fixed text-2xl  shadow-xl md:right-10 sm:right-8 right-5 rounded-2xl z-[9999] text-white flex-c w-10 h-12 border bg-secondary`}
+      } fixed text-2xl  shadow-xl md:right-10 sm:right-8 right-5 rounded-2xl z-[9999] text-black flex-c w-10 h-12 border bg-secondary`}
       onClick={backtoTop}
       aria-label="bottom to top button"
     >

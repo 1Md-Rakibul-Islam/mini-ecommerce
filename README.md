@@ -1,4 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mini E-Commerce Web Application
+
+This is a mini e-commerce web application built with Next.js. It includes product listing, product details, and cart functionalities. The app is fully responsive and integrates mock API data for products.
+## Live Demo (https://mini-ecommerce-zeta.vercel.app)
+
+## Setup
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v20 or later)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+
+### Steps to Run the Project
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/1Md-Rakibul-Islam/mini-ecommerce.git
+   cd mini-ecommerce
+
+2. Clone the repository:
+   ```Live on Vercel (http://www.digital.com/)
 
 ## Getting Started
 
@@ -18,19 +38,60 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features
 
-## Learn More
+0. **Landing Page**:
+    - Displays a list of products fetched from a mock API.
+    - Each product card shows:
+      - Product image
+      - Product name
+      - Price
+      - "Add to Cart" button
+1. **Products Page**:
+    - Clicking a product navigates to a dynamic route (`/products`).
+    - Displays a list of products fetched from a mock API.
+    - Each product card shows:
+      - Product image
+      - Product name
+      - Price
+      - "Add to Cart" button
 
-To learn more about Next.js, take a look at the following resources:
+2. **Product Details Page**:
+    - Clicking a product navigates to a dynamic route (`/products/[id]`).
+    - Displays:
+      - Product image
+      - Product name
+      - Description
+      - Price
+      - "Add to Cart" button
+      - Related products based on the product category
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Cart Functionality**:
+    - A cart page (`/cart`) that:
+      - Lists all products added to the cart.
+      - Displays the total price of the cart.
+      - Allows users to remove items from the cart.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **API Integration**:
+    - Mock API integration (e.g., Faker.js or JSON Placeholder) to fetch product data.
+    - API routes implemented in Next.js for:
+      - Fetching products
+      - Adding/removing items in the cart
 
-## Deploy on Vercel
+5. **Performance**:
+    - Server-Side Rendering (SSR) for the landing page.
+    - Static Site Generation (SSG) for product details.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+6. **Responsive Design**:
+    - Fully responsive, working on both desktop and mobile devices.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+7. **Code Quality**:
+    - TypeScript used for type safety.
+    - Clean coding practices followed.
+    - Comments included where necessary.
+
+## Optional Bonus Features
+
+- Search and filter functionality on the landing page.
+- State management using Redux Toolkit or Zustand.
+- Optional mock login functionality for authentication.

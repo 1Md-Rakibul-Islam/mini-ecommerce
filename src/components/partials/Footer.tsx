@@ -5,7 +5,9 @@ import {
   IconBrandInstagram,
   IconBrandTwitter,
   IconBrandYoutube,
+  IconChevronRight,
 } from "@tabler/icons-react";
+import { navMenu } from "@public/data/navMenu";
 
 const Footer = () => {
   return (
@@ -14,7 +16,12 @@ const Footer = () => {
         <div className="relative z-10 lg:px-10">
           <div className="grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 4xl:gap-x-6 max-4xl:gap-40p border-y-2 border-dashed border-shap py-80p">
             <div>
-              {/* <Image className="mb-16p" src={logo} alt="logo" /> */}
+              <Link
+                href="/"
+                className="heading-3 text-w-neutral-1 hover:text-secondary transition-1 mb-24p"
+              >
+                HatBazar
+              </Link>
               <p className="text-base text-w-neutral-3 mb-32p">
                 Become visionary behind a sprawling metropolis in Metropolis
                 Tycoon Plan empire progress.
@@ -39,42 +46,23 @@ const Footer = () => {
                 Main pages
               </h4>
               <ul className="grid grid-cols-1 sm:gap-y-16p gap-y-2 *:flex *:items-center">
-                <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                  <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
-                  <Link
-                    href="/library"
-                    className="text-m-regular text-w-neutral-3"
+                {navMenu?.slice(0, 4)?.map((item, idx) => (
+                  <li
+                    key={idx}
+                    className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit"
                   >
-                    My Library
-                  </Link>
-                </li>
-                <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                  <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
-                  <Link
-                    href="/trending"
-                    className="text-m-regular text-w-neutral-3"
-                  >
-                    Trending
-                  </Link>
-                </li>
-                <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                  <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
-                  <Link
-                    href="/leaderboard"
-                    className="text-m-regular text-w-neutral-3"
-                  >
-                    Leaderboard
-                  </Link>
-                </li>
-                <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                  <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
-                  <Link
-                    href="/chat"
-                    className="text-m-regular text-w-neutral-3"
-                  >
-                    Chat
-                  </Link>
-                </li>
+                    <IconChevronRight
+                      size={24}
+                      className="group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"
+                    />
+                    <Link
+                      href={item?.link}
+                      className="text-m-regular text-w-neutral-3"
+                    >
+                      {item?.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
             <div>

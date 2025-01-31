@@ -12,8 +12,9 @@ const TopRelatedProducts = ({
   relatedProducts: TProduct[];
 }) => {
   return (
-    <section className="section-py">
+    <section className="section-pb">
       <div className="container">
+        <h2 className="heading-2 text-w-neutral-1 mb-32p">Related Products</h2>
         <Swiper
           loop={true}
           slidesPerView={4}
