@@ -2,7 +2,7 @@ import AllProducts from "@/components/sections/home/AllProducts";
 import Breadcrumb from "@/components/shared/Breadcumb";
 import { headerBannerType, NavLinkProps } from "@/types/interface";
 
-const Page = () => {
+const ProductsPage = () => {
   const navLinks: NavLinkProps[] = [
     { id: 1, url: "/", label: "Home" },
     { id: 2, url: "", label: "Products" },
@@ -21,4 +21,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default ProductsPage;

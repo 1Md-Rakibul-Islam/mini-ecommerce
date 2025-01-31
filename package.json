@@ -9,12 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.5.1",
     "@tabler/icons-react": "^3.29.0",
     "axios": "^1.7.9",
     "next": "15.1.6",
     "react": "^19.0.0",
     "react-animate-height": "^3.2.3",
     "react-dom": "^19.0.0",
+    "react-redux": "^9.2.0",
     "sass": "^1.83.4",
     "scss": "^0.2.4",
     "swiper": "^11.2.1",

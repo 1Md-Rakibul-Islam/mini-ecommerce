@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
-
+/** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
   images: {
     domains: ['fakestoreapi.com'],
@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
   experimental: {
     turbo: {},
   },
+  reactStrictMode: true,
+  output: "export",
 };
 
-export default nextConfig;
+module.exports = nextConfig;
+

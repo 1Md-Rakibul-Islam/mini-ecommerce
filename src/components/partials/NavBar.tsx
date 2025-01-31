@@ -3,8 +3,15 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { IconMenu2, IconSearch, IconX } from "@tabler/icons-react";
+import {
+  IconMenu2,
+  IconSearch,
+  IconShoppingCart,
+  IconX,
+} from "@tabler/icons-react";
 import { useToggle } from "@/hooks";
+import { navMenu } from "@public/data/navMenu";
+import { useSelector } from "react-redux";
 
 const NavBar = () => {
   const path = usePathname();
@@ -17,6 +24,8 @@ const NavBar = () => {
     ref: searchRef,
   } = useToggle();
 
+  const { cartItems } = useSelector((state) => state.cart);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 180);
@@ -24,12 +33,6 @@ const NavBar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const navMenu = [
-    { id: 1, name: "Home", link: "/" },
-    { id: 2, name: "Products", link: "/products" },
-    { id: 3, name: "Cart", link: "/cart" },
-  ];
 
   return (
     <header
@@ -47,9 +50,9 @@ const NavBar = () => {
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex gap-6">
-          {navMenu?.map((item) => (
+          {navMenu?.map((item, idx) => (
             <Link
-              key={item.id}
+              key={idx}
               href={item.link}
               className={`${
                 path === item.link ? "text-primary" : "text-white"
@@ -61,11 +64,11 @@ const NavBar = () => {
         </nav>
 
         {/* Search & Mobile Menu Toggle */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 ">
           <div ref={searchRef} className="relative">
             <button
               onClick={handleSearchToggle}
-              className="text-white hover:text-primary"
+              className="flex-c btn-c btn-md"
             >
               <IconSearch size={24} />
             </button>
@@ -79,7 +82,12 @@ const NavBar = () => {
               </div>
             )}
           </div>
-
+          <Link href={"/cart"} className="relative">
+            <IconShoppingCart size={24} />
+            <span className="absolute -top-4 -right-5 px-1 bg-primary text-black rounded-full flex-c">
+              {cartItems.length}
+            </span>
+          </Link>
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="md:hidden text-white hover:text-primary"
@@ -92,9 +100,9 @@ const NavBar = () => {
       {/* Mobile Menu */}
       {menuOpen && (
         <nav className="absolute top-16 left-0 w-full bg-gray-900 p-4 flex flex-col items-center md:hidden">
-          {navMenu.map((item) => (
+          {navMenu.map((item, idx) => (
             <Link
-              key={item.id}
+              key={idx}
               href={item.link}
               className="text-white hover:text-primary py-2"
               onClick={() => setMenuOpen(false)}

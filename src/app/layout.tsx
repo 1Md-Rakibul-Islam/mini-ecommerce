@@ -4,6 +4,7 @@ import "@/assets/styles/app.scss";
 import { Suspense } from "react";
 import { NavBar, ScrollToTop } from "@/components/ui";
 import { Footer } from "@/components/shared";
+import ReduxProvider from "@/redux/ReduxProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,10 +32,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Suspense fallback={<div>Loading...</div>}>
-          <NavBar />
-          {children}
-          <Footer />
-          <ScrollToTop />
+          <ReduxProvider>
+            <NavBar />
+            {children}
+            <Footer />
+            <ScrollToTop />
+          </ReduxProvider>
         </Suspense>
       </body>
     </html>

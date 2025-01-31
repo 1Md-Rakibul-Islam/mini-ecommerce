@@ -3,22 +3,31 @@ import TopRelatedProducts from "@/components/sections/productDetails/TopRelatedP
 import Breadcrumb from "@/components/shared/Breadcumb";
 import { headerBannerType, NavLinkProps } from "@/types/interface";
 import { TProduct } from "@/types/product.interface";
-import { fetchProductByCategory, fetchProductById } from "@/utils/API";
-interface PageProps {
-  params: { id: string };
+import {
+  fetchProductByCategory,
+  fetchProductById,
+  fetchProducts,
+} from "@/utils/API";
+
+export async function generateStaticParams(): Promise<{ id: string }[]> {
+  const products: TProduct[] = await fetchProducts();
+  return products.map((product) => ({
+    id: product.id.toString(),
+  }));
 }
 
-const ProductPage = async ({ params }: PageProps) => {
-  const productId = params.id.toString();
-
-  const product: TProduct | null = await fetchProductById(productId);
-  const relatedProducts: TProduct[] | null = await fetchProductByCategory(
-    product?.category || ""
-  );
+export default async function ProductPage({
+  params,
+}: {
+  params: { id: string };
+}) {
+  const product = await fetchProductById(params.id);
 
   if (!product) {
     return <p className="text-center mt-10 text-red-500">Product not found</p>;
   }
+
+  const relatedProducts = await fetchProductByCategory(product.category || "");
 
   const navLinks: NavLinkProps[] = [
     { id: 1, url: "/", label: "Home" },
@@ -34,13 +43,7 @@ const ProductPage = async ({ params }: PageProps) => {
     <main>
       <Breadcrumb breadcrumb={headerData} />
       <ProductDetails product={product} />
-      <TopRelatedProducts
-        relatedProducts={
-          relatedProducts && relatedProducts.length > 0 ? relatedProducts : []
-        }
-      />
+      <TopRelatedProducts relatedProducts={relatedProducts ?? []} />
     </main>
   );
-};
-
-export default ProductPage;
+}

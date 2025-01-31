@@ -1,10 +1,15 @@
+"use client";
+
 import Link from "next/link";
 import RatingStars from "../ui/RatingStars";
 import { IconShoppingCartPlus } from "@tabler/icons-react";
 import Image from "next/image";
 import { TProduct } from "@/types/product.interface";
+import { useCart } from "@/redux/hooks/useCart";
 
 const ProductCard = ({ product }: { product: TProduct }) => {
+  const { addToCart } = useCart();
+
   return (
     <div className="py-30p px-20p rounded-20 border border-shap group">
       <div className="flex-col-c overflow-hidden rounded-xl mb-30p">
@@ -35,7 +40,10 @@ const ProductCard = ({ product }: { product: TProduct }) => {
           </div>
         </div>
         <div className="flex-y justify-between 4xl:gap-6 gap-3">
-          <button className="btn btn-md btn-neutral-3 group-hover:bg-primary group-hover:text-b-neutral-4 rounded-12">
+          <button
+            onClick={() => addToCart(product)}
+            className="btn btn-md btn-neutral-3 group-hover:bg-primary group-hover:text-b-neutral-4 rounded-12"
+          >
             <span className="flex-c icon-24">
               <IconShoppingCartPlus />
             </span>
