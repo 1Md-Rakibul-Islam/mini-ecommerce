@@ -12,6 +12,7 @@ import {
 import { useToggle } from "@/hooks";
 import { navMenu } from "@public/data/navMenu";
 import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
 
 const NavBar = () => {
   const path = usePathname();
@@ -24,7 +25,7 @@ const NavBar = () => {
     ref: searchRef,
   } = useToggle();
 
-  const { cartItems } = useSelector((state) => state.cart);
+  const { cartItems } = useSelector((state: RootState) => state.cart);
 
   useEffect(() => {
     const handleScroll = () => {

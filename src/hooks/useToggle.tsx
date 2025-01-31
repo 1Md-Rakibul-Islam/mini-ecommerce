@@ -5,24 +5,21 @@ import { useEffect, useRef, useState } from "react";
 const useToggle = (): {
   open: boolean;
   handleToggle: () => void;
-  ref: React.RefObject<HTMLDivElement>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ref: React.RefObject<HTMLDivElement> | any;
 } => {
-  // State to track the toggle state
   const [open, setOpen] = useState<boolean>(false);
 
   // Ref to the element to check for outside clicks
-  const ref = useRef<HTMLDivElement | null>(null);
+  const ref = useRef<HTMLDivElement>(null); // Initialize with null, but type is HTMLDivElement
 
   /**
    * Event handler for click outside events.
    * @param event - The mouse event.
    */
   const handleClickOutside = (event: MouseEvent) => {
-    // If the click target is outside the ref element, close the toggle
-    if (
-      window.scrollY > 100 ||
-      (ref.current && !ref.current.contains(event.target as Node))
-    ) {
+    // Check if ref.current exists before accessing it
+    if (ref.current && !ref.current.contains(event.target as Node)) {
       setOpen(false);
     }
   };
@@ -39,7 +36,7 @@ const useToggle = (): {
     window.addEventListener("scroll", handleScroll);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-      window.addEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScroll); // Fix: Use removeEventListener
     };
   }, []);
 
@@ -53,4 +50,5 @@ const useToggle = (): {
   // Return the state, toggle function, and ref
   return { open, handleToggle, ref };
 };
+
 export default useToggle;

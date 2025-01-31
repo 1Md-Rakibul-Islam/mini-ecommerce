@@ -11,9 +11,11 @@ const API = axios.create({
 
 export const fetchProducts = async () => {
     try {
-        const response = await API.get("/products");
-        console.log("Fetch Products", response.data);
-        return response.data;
+        const response = await fetch(`${API_URL}/products`, {
+            cache: 'force-cache'
+        });
+        const data = await response.json();
+        return data;
     } catch (error) {
         console.error("Error fetching products:", error);
         return [];
@@ -22,24 +24,26 @@ export const fetchProducts = async () => {
 
 export const fetchProductById = async (id: string) => {
     try {
-        const response = await API.get(`/products/${id}`);
-        return response.data;
-    }
-
-    catch (error) {
-        console.error("Error fetching products:", error);
-        return [];
+        const response = await fetch(`${API_URL}/products/${id}`, {
+            cache: 'force-cache'
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error fetching product:", error);
+        return null;
     }
 };
 
 export const fetchProductByCategory = async (category: string) => {
     try {
-        const response = await API.get(`/products/category/${category}`);
-        return response.data;
-    }
-
-    catch (error) {
-        console.error("Error fetching products:", error);
+        const response = await fetch(`${API_URL}/products/category/${category}`, {
+            cache: 'force-cache'
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error fetching products by category:", error);
         return [];
     }
 };

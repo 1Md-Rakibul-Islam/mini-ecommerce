@@ -1,15 +1,16 @@
 import type { NextConfig } from "next";
-/** @type {import('next').NextConfig} */
+
 const nextConfig: NextConfig = {
   images: {
     domains: ['fakestoreapi.com'],
+    unoptimized: true,
   },
   experimental: {
     turbo: {},
   },
-  reactStrictMode: true,
+  distDir: 'dist',
   output: "export",
+  reactStrictMode: true,
 };
 
-module.exports = nextConfig;
-
+export default nextConfig;
