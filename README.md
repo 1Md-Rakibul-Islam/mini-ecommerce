@@ -89,9 +89,3 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
     - TypeScript used for type safety.
     - Clean coding practices followed.
     - Comments included where necessary.
-
-## Optional Bonus Features
-
-- Search and filter functionality on the landing page.
-- State management using Redux Toolkit or Zustand.
-- Optional mock login functionality for authentication.
